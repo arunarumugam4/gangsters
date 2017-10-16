@@ -1,0 +1,41 @@
+ 
+<div id='loginbox'>
+ <h3 style='text-align:center;color:gray !important;text-shadow:2px 2px 2px black;font-family: "Rye", cursive;'>Log<span style=''>in</span></h3>
+
+   <form ng-submit='loginCtrl.login()' name='loginForm' id='loginform'>
+     
+     
+    
+     
+     <div class="form-group">
+      
+       <h5 style="text-shadow:2px 2px 2px black;letter-spacing:;color:white;text-align:center;font-family:cursive;background-color:#1F5846;padding:0.5em;" ng-if='loginCtrl.message !=="null"'>{{loginCtrl.message}}</h5>
+       
+      <div class="form-group">
+        <label for="exampleInputEmail1" style='color:white'>Email address</label>
+        <input name='email' style='background-color:inherit;color:white;' type="email" class="form-control nuke" id="exampleInputEmail1" ng-model='loginCtrl.userData.email' aria-describedby="emailHelp" placeholder="Enter email" autofocus required>
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+
+        <div class="help-block" ng-messages="loginForm.email.$error">
+      <div ng-messages-include="errorMessage.html"></div>
+     </div>
+      </div>
+
+      <div class="form-group">
+        <label for="exampleInputPassword1" style='color:white'>Password</label>
+        <input name='password' style='background-color:inherit;color:white;' type="password" class="form-control nuke" ng-model='loginCtrl.userData.password' id="exampleInputPassword1" placeholder="Password" ng-minlength='4' required>
+
+        <div class="help-block" ng-messages="loginForm.password.$error">
+      <div ng-messages-include="errorMessage.html"></div>
+     </div>
+
+      </div>
+
+      <button type="submit" class="btn btn-primary cool">Submit</button>
+      <img ng-if='loginCtrl.load===true' id='loadingIcon' src='/assets/loadingIcon.svg' />
+
+      <h6 style='margin-top:5%;'><a href='/forgetpassword'>Forget Password</a></h6>
+      <h6 style='margin-top:5%;'>if you not a member ? <a href='#!signup'>signup</a></br>or </br><a href='#!'>Home</a></h6>
+    </form>
+
+    </div>

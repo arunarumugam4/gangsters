@@ -1,0 +1,61 @@
+<div id='signupbox'>
+   <h3 style='text-align:center;color:gray !important;text-shadow:2px 2px 2px black;font-family: "Rye", cursive;'>sign<span style=''>Up</span></h3>
+
+   <form ng-submit='signupCtrl.signup()' name='signupForm' id='loginform'>
+
+     
+     <h5  style="text-shadow:2px 2px 2px black;letter-spacing:;color:white;text-align:center;font-family:cursive;background-color:#1F5846;padding:0.5em;" ng-if='signupCtrl.message !=="null"'>{{signupCtrl.message}}</h5>
+    
+     
+     <div class="form-group" >
+      <label for="exampleInputPassword1" style='color:white'>User Name</label>
+      <input name='userName' style='background-color:inherit;color:white;' type="text" ng-model='signupCtrl.userData.userName' class="form-control" id="exampleInputPassword1" placeholder="User Name" ng-minlength='3' ng-maxlength ='30' autofocus required>
+
+       <div class="help-block" ng-messages="signupForm.userName.$error">
+      <div ng-messages-include="errorMessage.html"></div>
+     </div>
+       
+
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputEmail1" style='color:white'>Email Address</label>
+      <input name='email' style='background-color:inherit;color:white' type="email" class="form-control nuke" ng-model='signupCtrl.userData.email' id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      
+      <div class="help-block" ng-messages="signupForm.email.$error">
+      <div ng-messages-include="errorMessage.html"></div>
+     </div>
+
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputPassword1" style='color:white'>Password</label>
+      <input name='password' style='background-color:inherit;color:white' type="password" ng-model='signupCtrl.userData.password' class="form-control nuke" id="exampleInputPassword1" placeholder="Password" ng-minlength='4' required>
+      
+      <div class="help-block" ng-messages="signupForm.password.$error">
+      <div ng-messages-include="errorMessage.html"></div>
+     </div>
+
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputPassword2" style='color:white'>Confirm Password</label>
+      <input name='confirmPassword' style='background-color:inherit;color:white' type="password" class="form-control nuke" id="exampleInputPassword1"   ng-model='signupCtrl.userData.confirmPassword' placeholder="Confirm Password" ng-minlength='4' required ng-pattern="{{signupCtrl.userData.password}}" required>
+
+      <div class="help-block" ng-messages="signupForm.confirmPassword.$error">
+      <div ng-messages-include="errorMessage.html"></div>
+     </div>
+
+
+    </div>
+
+
+    <button type="submit" class="btn btn-primary cool">Submit</button>
+    <img ng-if='signupCtrl.load===true' id='loadingIcon' src='/assets/loadingIcon.svg' />
+
+
+    <h6 style='margin-top:5%;'>if already signed up? <a href='#!login'>login</a></br>or </br><a href='#!'>Home</a></h6>
+  </form>
+
+</div>

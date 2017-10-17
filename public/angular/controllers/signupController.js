@@ -1,5 +1,5 @@
 // DEFINE SIGN UP CONTROLLER
-app.controller('signupController', ['$http', function($http){
+app.controller('signupController', ['$http','$location', function($http,$location){
    const self =this;
    console.log('hey')
    this.userData = {}
@@ -43,6 +43,7 @@ app.controller('signupController', ['$http', function($http){
                     self.load = false;
                     $location.path('login');
               }
+
 				   	console.log(response)
 				   }, (err)=>{
 				   	console.log(err);

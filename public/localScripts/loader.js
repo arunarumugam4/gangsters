@@ -1,6 +1,6 @@
     // EVENT LISTENERS
           // INIT THE SOCKET
-          const socket = io("http://localhost:3000");
+          const socket = io("https://gangsters007.herokuapp.com");
 
           // SET SOCKET IN SERVICE
           self.userSocket = socket;

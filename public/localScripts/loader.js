@@ -1,7 +1,7 @@
     // EVENT LISTENERS
           // INIT THE SOCKET
-          //var socket = io("https://gangsters007.herokuapp.com");
-          var socket = io("http://localhost:3000");
+          var socket = io("https://gangsters007.herokuapp.com");
+          //var socket = io("http://localhost:3000");
 
           // SET SOCKET IN SERVICE
           self.userSocket = socket;

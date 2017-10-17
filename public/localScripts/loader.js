@@ -1,6 +1,7 @@
     // EVENT LISTENERS
           // INIT THE SOCKET
-          var socket = io("https://gangsters007.herokuapp.com");
+          //var socket = io("https://gangsters007.herokuapp.com");
+          var socket = io("http://localhost:3000");
 
           // SET SOCKET IN SERVICE
           self.userSocket = socket;
@@ -11,21 +12,26 @@
           // USERS ONLINE EVENT
           socket.on('usersOnline', function(usersOnline){
               
+            
+
              $('#whoisinonline').html('');
 
              $('#noone').remove();
 
-             // REMOVE THE CLIENT FROM USERS ONLIE LIST
-             for(let i in usersOnline){
 
-                   if(usersOnline[i].email === app.userDetails.email){
-                            
-                            usersOnline.splice(i,1);
-                   }
-                  
-                  app.usersOnline = usersOnline;
+
+
+             // REMOVE THE CLIENT FROM USERS ONLIE LIST
+
+
+            usersOnline = usersOnline.filter(function(users){
+                       return (app.userDetails.email !== users.email);
+                   })
+
+                app.usersOnline = usersOnline;
                   console.log(usersOnline);
-             }
+
+           
 
 
              // ADD ALL THE ITEM TO THE VIEWS
@@ -46,7 +52,7 @@
 
              // IF NO USERS AVAILABLE
              if(usersOnline.length === 0){
-                     $('#whoisinonline').append("<h5 style='color:gray' id='noone' class='onuser'>No one in online</h5>");
+                     $('#whoisinonline').append("<h5 style='color:gray;text-align:center;' id='noone' class=''>No one in online</h5>");
              } else {
 
                     $('#noone').remove();
@@ -63,6 +69,13 @@
 
                    // SHOW CHAT BOX
                    $('#chatContainer').fadeIn('slow');
+
+                   // AUTO SCROLLING TO THE BOTTOM
+              
+                   /*$(window).scrollTop($('body').height())*/
+                   $("html, body").animate({ scrollTop: $('body').height() }, 3000);
+
+
                    // ATTACH THIS EMAIL TO THE CHAT BOX
                    $('#chattbox').attr('person', email);
 
@@ -242,5 +255,10 @@ socket.on('typingMessage', function(from){
 
 
 
-
+// GO TOP 
+$('#up').click(function(){
+ $("html, body").animate({ scrollTop: 0 }, 700);
+        
+ 
+})
 

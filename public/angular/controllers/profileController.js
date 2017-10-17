@@ -11,6 +11,11 @@ app.controller('profileController', ['$http','$mainService','$cookies','$locatio
        $http.get('/api/logout').then((response)=>{
 
             console.log(response);
+            
+            // DISCONNECT SOCKET
+            app.userSocket.disconnect(function(){
+              console.log('userSocket disconnected')
+            });
 
             $location.path('login');
 

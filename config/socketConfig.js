@@ -5,10 +5,10 @@ const messageModel = require('../app/models/Message');
 
 
 // CONNECTIONS ONLINE
-const connections = [];
+let connections = [];
 
 // USERS ONLINE
-const usersOnline = [];
+let usersOnline = [];
 
 
 
@@ -59,6 +59,37 @@ module.exports = (io,app) => {
            if(user){
              // ATTACH NEW USER EMAIL TO THE SOCKET FOR IDENTIFICATION PURPOSE
              socket.email = user.email
+
+             // CHECK SAME USER AVAILABLE
+             /*for(let i in connections){
+                if(connections[i].email===user.email){
+                   console.log("=================================")
+                     console.log(connections[i].email)
+                     console.log(connections.length);
+                     console.log("=================================")
+                    // REMOVE THAT OLD SOCKET CONNECTION
+                    connections.splice(i,1);
+                    console.log(connections.length);
+                }
+             }*/
+            connections = connections.filter(function(connection){
+
+                return(connection.email !== user.email);
+             })
+
+             console.log("=================================")
+                     
+                     console.log(connections.length);
+                     console.log("=================================")
+
+             // UPDATE USERS ONLINE
+             usersOnline = usersOnline.filter(function(userOnline){
+
+                  return (userOnline.email !== user.email);
+             })
+
+             // AGIN PUSH THE NEW SOCKET CONNECTION
+             connections.push(socket);
 
              // PUSH THE USER TO THE USERS ONLINE
              usersOnline.push(user);

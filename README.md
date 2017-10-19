@@ -1,2 +1,0 @@
-# gangsters
-private chat application

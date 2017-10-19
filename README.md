@@ -56,7 +56,8 @@ jwt token is required to access this end point, you can send token in any one of
 url query, cookies 
 ```
 
-``` 5. api/messages (POST)
+``` 
+5. api/messages (POST)
 end point for getting all the conversation between the two users
 body-parameter : from,to (both are emails of those people)
 

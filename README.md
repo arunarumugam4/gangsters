@@ -32,23 +32,34 @@ in that file change the dbUrl to your mongodb url
 
 ### IMPORTANT API END POINTS
 
-> 1. api/signup (POST)
+```
+1. api/signup (POST)
 end point for  sign up 
 body-parameters:  userName, email, password
 
-> 2. api/login (POST)
+```
+
+```
+2. api/login (POST)
 end point for login  
 body-parameters : email, password
+```
 
-> 3. api/logout (GET)
+```
+3. api/logout (GET)
 end point for logout
+```
 
-> 4. api/profile (GET)
+```
+4. api/profile (GET)
 jwt token is required to access this end point, you can send token in any one of the following format
 url query, cookies 
+```
 
-> 5. api/messages (POST)
+``` 5. api/messages (POST)
 end point for getting all the conversation between the two users
 body-parameter : from,to (both are emails of those people)
+
+```
 
 ===================================

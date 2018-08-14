@@ -16,7 +16,8 @@ app.controller('signupController', ['$http','$location', function($http,$locatio
         
         // LODER
          self.load = true;
-
+          
+	  amplitude.getInstance().logEvent('SIGNUP_EVENT);
 
         // CHECK IF PASSWORD MATCH OR NOT
         if(self.userData.password !== self.userData.confirmPassword){

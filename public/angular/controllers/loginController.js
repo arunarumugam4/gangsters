@@ -15,7 +15,7 @@ app.controller('loginController', ['$http','$location', function($http,$location
 
    // SIGN UP REQUEST
   this.login = function(){
-           
+            amplitude.getInstance().logEvent('LOGIN_EVENT');
             self.load= true;
         
 				  	$http.post('/api/login', self.userData).then((response)=>{
